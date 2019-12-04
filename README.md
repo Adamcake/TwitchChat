@@ -31,7 +31,7 @@ connection = chat.connect(username, oauth_token, on_message=message, on_notice=n
 ```  
 You can also connect to Twitch chat without signing in. In this mode, you'll be able to receive messages but not send them.  
 `connection = chat.connect_as_guest(on_message=message, on_notice=notice, on_room_state=room_state)`  
-After joining a channel with this connection, any received chat messages will be sent to your on_message function in a Message object. Any notices, such as "This room is now in slow mode", will be sent to your on_notice callback. Any changes in the room state, such as subscriber-only mode being enabled or disabled, will be sent to your on_room_state callback in a RoomState object. All of these are optional and may be set to None.  
+After joining a channel with this connection, any received chat messages will be sent to your on_message function in a Message object. Any notices, such as "This room is now in slow mode", will be sent to your on_notice callback in a Notice object. Any changes in the room state, such as subscriber-only mode being enabled or disabled, will be sent to your on_room_state callback in a RoomState object. All of these are optional - you don't need to specify all three.  
   
 Full list of Message parameters:  
 `channel` - the channel name where the message was received, eg "adamcake"  
